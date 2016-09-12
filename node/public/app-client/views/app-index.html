@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <label>Please enter your name: </label>
+        <input ng-model="currentCustomer.name"/>
+        <button class="btn btn-primary" ng-click="join()">Join</button>
+        <br/>
+
+        <h1>New Customers: </h1>
+        <ul>
+          <li ng-repeat="customer in newCustomers">{{customer.name}}</li>
+        </ul>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 card">
+      <img class="card-img-top" src="img/bonnie.png" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Diseño</h4>
+        <p class="card-text">Añade tus ideas para el diseño de tu aplicación.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li ng-repeat="task in tasks" class="list-group-item">{{task}}</li>
+      </ul>
+      <div class="card-block">
+        <input type="text" class="form-control" ng-model="task.desing" style="margin-bottom: 20px;">
+        <button  class="btn btn-primary card-link" ng-click="addTask()">Agregar</button>
+
+      </div>
+    </div>
+    <div class="col-sm-3 card">
+      <img class="card-img-top" src="img/flynn.png" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Arquitectura</h4>
+        <p class="card-text">Añade tus ideas para la arquitectura de tu aplicación.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li ng-repeat="task in tasks" class="list-group-item">{{task}}</li>
+      </ul>
+      <div class="card-block">
+        <input type="text" class="form-control" ng-model="task.architecture" style="margin-bottom: 20px;">
+        <button  class="btn btn-primary card-link" ng-click="addTask()">Agregar</button>
+
+      </div>
+    </div>
+    <div class="col-sm-3 card">
+      <img class="card-img-top" src="img/jelly_bean.png" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Test</h4>
+        <p class="card-text">Añade tus ideas para los test de tu aplicación.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li ng-repeat="task in tasks" class="list-group-item">{{task}}</li>
+      </ul>
+      <div class="card-block">
+        <input type="text" class="form-control" ng-model="task.test" style="margin-bottom: 20px;">
+        <button  class="btn btn-primary card-link" ng-click="addTask()">Agregar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
