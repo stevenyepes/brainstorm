@@ -1,6 +1,17 @@
 body {
-    background-color: lightblue;
+  margin-top: 20px;
+  background-color: rgb(106, 65, 242);
 }
-.card {
-  margin-left: 10px;
+
+.chat {
+  position: fixed;
+  height: 100%;
+  width: 260px;
+  background-color: rgb(210, 210, 210);
+  top: 0px;
+  right: 0px;
+}
+
+.container-with-chat {
+  margin-right: 260px;
 }

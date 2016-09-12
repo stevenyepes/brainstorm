@@ -10,12 +10,26 @@ myApp
   $scope.newCustomers = [];
   $scope.currentCustomer = {};
   // Tareas para una de las tarjetas
-  $scope.tasks = [];
+  $scope.tasks_design = [];
+  $scope.tasks_architecture = [];
+  $scope.tasks_test = [];
 
 
-  $scope.addTask = function() {
+  $scope.addDesingTask = function() {
 
-    socket.emit('add-task', $scope.task);
+    socket.emit('add-design-task', $scope.task.design);
+
+  };
+
+  $scope.addArchitectureTask = function() {
+
+    socket.emit('add-architecture-task', $scope.task.architecture);
+
+  };
+
+  $scope.addTestTask = function() {
+
+    socket.emit('add-test-task', $scope.task.test);
 
   };
 
@@ -29,10 +43,28 @@ myApp
     });
   });
 
-  socket.on('task_added', function(data) {
+  socket.on('design-task-added', function(data) {
     $scope.$apply(function () {
-      $scope.tasks.push(data.task.data);
-      $scope.task.data = '';
+      $scope.tasks_design.push(data.task);
+      console.log(data);
+      $scope.task.design = '';
     });
   });
+
+  socket.on('architecture-task-added', function(data) {
+    $scope.$apply(function () {
+      $scope.tasks_architecture.push(data.task);
+      console.log(data);
+      $scope.task.architecture = '';
+    });
+  });
+
+  socket.on('test-task-added', function(data) {
+    $scope.$apply(function () {
+      $scope.tasks_test.push(data.task);
+      console.log(data);
+      $scope.task.test = '';
+    });
+  });
+
 });

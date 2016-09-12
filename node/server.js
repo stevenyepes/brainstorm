@@ -31,7 +31,7 @@ var io = require('socket.io')(server, {'transports': ['websocket', 'polling']});
 var redis = require('socket.io-redis');
 
 // Chequear si se esta corriendo dentro de Docker o en local
-io.adapter(redis({ host: 'localhost', port: 6379 }));
+io.adapter(redis({ host: 'redis', port: 6379 }));
 /*if(process.env.REDIS_PORT_6379_TCP_ADDR != 'undefined') {
   io.adapter(redis({ host: 'redis', port: 6379 }));
 }*/
@@ -48,12 +48,28 @@ io.sockets.on('connection', function(socket) {
     });
   });
 
-  socket.on('add-task', function(task) {
-    io.emit('task_added', {
+
+  socket.on('add-design-task', function(task) {
+    io.emit('design-task-added', {
       message: 'new task',
       task: task
     });
   });
+
+  socket.on('add-architecture-task', function(task) {
+    io.emit('architecture-task-added', {
+      message: 'new task',
+      task: task
+    });
+  });
+
+  socket.on('add-test-task', function(task) {
+    io.emit('test-task-added', {
+      message: 'new task',
+      task: task
+    });
+  });
+
 
 });
 
