@@ -9,7 +9,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 }])
 .factory('socket', ['$rootScope', function($rootScope) {
   // Cambiar a localhost:8080 cuando se esté en local
-  var serverUri = '192.168.137.242';
+  var serverUri = '169.44.115.223';
 
   var socket = io.connect(serverUri, {'transports': ['websocket', 'polling']});
   console.log('Socket connected');
