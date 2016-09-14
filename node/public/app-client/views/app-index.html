@@ -63,18 +63,23 @@
   <div class="container">
     <div class="row">
       <ul>
-        <li ng-repeat="customer in newCustomers">{{customer.name}}</li>
+        <li ng-repeat="customer in newCustomers">{{customer.customer}}: {{customer.message}}</li>
       </ul>
     </div>
 
     <div class="row">
-      <label>Say hi!: </label>
-          <input ng-model="currentCustomer.name"/>
-          <button class="btn btn-primary" ng-click="join()">Join</button>
-          <br/>
+      <div class="form-control">
+        <label>Nombre: </label>
+        <input ng-model="currentCustomer.name"/>
+      </div>
+      <div class="form-control">
+        <label>Mensaje: </label>
+        <input ng-model="currentCustomer.message"/>
+      </div>
+      <button class="btn btn-success" ng-click="join()">Enviar</button>
+
 
     </div>
   </div>
 </div>
-<script type="javascript/js"></script>
 </div>

@@ -39,7 +39,9 @@ myApp
 
   socket.on('notification', function(data) {
     $scope.$apply(function () {
-      $scope.newCustomers.push(data.customer);
+      $scope.newCustomers.push(data);
+      $scope.currentCustomer.message = "";
+      console.log(data);
     });
   });
 
